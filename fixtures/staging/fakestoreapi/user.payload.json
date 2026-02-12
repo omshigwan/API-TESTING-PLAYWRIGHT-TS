@@ -1,0 +1,11 @@
+{
+  "newUser": {
+    "username": "om",
+    "email": "omshigvan@vodafone.com",
+    "password": "Test@123"
+  },
+  "updateUser": {
+    "username": "john_doe_updated",
+    "email": "john.updated@example.com"
+  }
+}

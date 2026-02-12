@@ -1,0 +1,10 @@
+{
+  "Admin": {
+    "username": "admin",
+    "password": "password123"
+  },
+  "Unauthorised": {
+    "username": "random",
+    "password": "Test@_123"
+  }
+}

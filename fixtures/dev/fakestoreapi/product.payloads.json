@@ -1,0 +1,30 @@
+{
+  "Dettol": {
+    "Original": {
+      "title": "Original Dettol",
+      "price": 9.99
+    },
+    "Cool": {
+      "title": "Dettol Cool Fresh",
+      "price": 9.99
+    },
+    "Lemon": {
+      "title": "Dettol Lemon Fresh",
+      "price": 9.99
+    }
+  },
+  "Medimix": {
+    "Herbal": {
+      "title": "Medimix Green",
+      "price": 9.99
+    },
+    "Sandalwood": {
+      "title": "Medimix Sandalwood",
+      "price": 9.99
+    },
+    "Saffron": {
+      "title": "Medimix Saffron",
+      "price": 9.99
+    }
+  }
+}
