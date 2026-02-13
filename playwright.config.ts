@@ -13,9 +13,11 @@ export default defineConfig({
     ["json", { outputFile: "reports/json-report/test-results.json" }],
   ],
   use: {
-    proxy: {
-      server: "http://10.38.107.203:3120",
-    },
+    /* proxy setting is to  run test cases locally
+    comment out proxy settings before merging new changes */
+    // proxy: {
+    //   server: "http://10.38.107.203:3120",
+    // },
     trace: "on-first-retry",
   },
   projects: [
