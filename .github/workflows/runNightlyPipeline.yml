@@ -1,9 +1,8 @@
-name: Playwright Tests
+name: Run E2E Dev Fakestore Every Thursday 2am IST
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  schedule:
+    # 2:00am IST is 8:30pm UTC (previous day, IST is UTC+5:30)
+    - cron: '30 20 * * 3'
 jobs:
   test:
     timeout-minutes: 60
