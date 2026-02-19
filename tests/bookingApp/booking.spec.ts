@@ -29,23 +29,27 @@ test.describe(
       }
     );
 
-    test('get a booking by id', { tag: ['@Positive','@Sanity'] }, async ({ request }) => {
-      const response = await getRequest(request, `${BASE_URL}/booking/309`);
-      expect(response.status()).toBe(200);
-      expect(response.statusText()).toBe('OK');
+    test(
+      'get a booking by id',
+      { tag: ['@Positive', '@Sanity'] },
+      async ({ request }) => {
+        const response = await getRequest(request, `${BASE_URL}/booking/309`);
+        expect(response.status()).toBe(200);
+        expect(response.statusText()).toBe('OK');
 
-      const responseBody = await response.json();
-      expect(typeof responseBody.firstname).toBe('string');
-      expect(responseBody.firstname).toBeTruthy();
-      expect(typeof responseBody.lastname).toBe('string');
-      expect(responseBody.lastname).toBeTruthy();
-      expect(typeof responseBody.totalprice).toBe('number');
-      expect(responseBody.totalprice).toBeTruthy();
-      expect(typeof responseBody.depositpaid).toBe('boolean');
-      expect(responseBody.depositpaid).toBeTruthy();
-      expect(responseBody.bookingdates.checkin).toBeTruthy();
-      expect(responseBody.bookingdates.checkout).toBeTruthy();
-    });
+        const responseBody = await response.json();
+        expect(typeof responseBody.firstname).toBe('string');
+        expect(responseBody.firstname).toBeTruthy();
+        expect(typeof responseBody.lastname).toBe('string');
+        expect(responseBody.lastname).toBeTruthy();
+        expect(typeof responseBody.totalprice).toBe('number');
+        expect(responseBody.totalprice).toBeTruthy();
+        expect(typeof responseBody.depositpaid).toBe('boolean');
+        expect(responseBody.depositpaid).toBeTruthy();
+        expect(responseBody.bookingdates.checkin).toBeTruthy();
+        expect(responseBody.bookingdates.checkout).toBeTruthy();
+      }
+    );
 
     test(
       'get booking ids by first name',
