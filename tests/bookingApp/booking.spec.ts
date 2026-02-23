@@ -7,8 +7,7 @@ import createBookingSchema from '../../schemas/bookingApp/booking.spec.json' ass
 import createBookingBody from '../../fixtures/dev/bookingApp/createbooking.payloads.json' assert { type: 'json' };
 import createBookingInvalidBody from '../../fixtures/dev/bookingApp/createbookinginvalid.payloads.json' assert { type: 'json' };
 
-
-test.beforeEach(async ({ }, testInfo) => {
+test.beforeEach(async ({}, testInfo) => {
   console.log(`Running test ${testInfo.title}`);
 });
 
@@ -101,8 +100,8 @@ test.describe(
 
         const responseBody = await response.json();
         expect(Array.isArray(responseBody)).toBe(true);
-        expect(typeof responseBody[0].bookingid).toBe("number");
-        expect(Object.keys(responseBody[0])).toContain("bookingid");
+        expect(typeof responseBody[0].bookingid).toBe('number');
+        expect(Object.keys(responseBody[0])).toContain('bookingid');
       }
     );
 
@@ -118,8 +117,8 @@ test.describe(
 
         const responseBody = await response.json();
         expect(Array.isArray(responseBody)).toBe(true);
-        expect(typeof responseBody[0].bookingid).toBe("number");
-        expect(Object.keys(responseBody[0])).toContain("bookingid");
+        expect(typeof responseBody[0].bookingid).toBe('number');
+        expect(Object.keys(responseBody[0])).toContain('bookingid');
       }
     );
   }
@@ -130,22 +129,19 @@ test.describe(
   'create a new booking using POST operation on endpoint /booking',
   { tag: ['@BookingAppRegression', '@Positive', '@Sanity'] },
   () => {
-    test(
-      'create a booking',
-      async ({ request }) => {
-        const response = await postRequestWithBody(
-          request,
-          `${BASE_URL}/booking`,
-          createBookingBody.Om
-        );
-        expect(response.status()).toBe(200);
-        expect(response.statusText()).toBe('OK');
+    test('create a booking', async ({ request }) => {
+      const response = await postRequestWithBody(
+        request,
+        `${BASE_URL}/booking`,
+        createBookingBody.Om
+      );
+      expect(response.status()).toBe(200);
+      expect(response.statusText()).toBe('OK');
 
-        const responseBody = await response.json();
-        validateSchema(createBookingSchema, responseBody);
-        console.log('Schema validation passed !!');
-      }
-    );
+      const responseBody = await response.json();
+      validateSchema(createBookingSchema, responseBody);
+      console.log('Schema validation passed !!');
+    });
   }
 );
 
@@ -154,60 +150,48 @@ test.describe(
   'retrieve error while creating a booking with invalid payload',
   { tag: ['@BookingAppRegression', '@Negative'] },
   () => {
-    test(
-      'invalid firstname field in the payload',
-      async ({ request }) => {
-        const response = await postRequestWithBody(
-          request,
-          `${BASE_URL}/booking`,
-          createBookingInvalidBody.invalidFieldFirstname
-        );
-        expect(response.status()).toBe(500);
-        expect(response.statusText()).toBe('Internal Server Error');
-        expect(await response.text()).toBe('Internal Server Error');
-      }
-    );
+    test('invalid firstname field in the payload', async ({ request }) => {
+      const response = await postRequestWithBody(
+        request,
+        `${BASE_URL}/booking`,
+        createBookingInvalidBody.invalidFieldFirstname
+      );
+      expect(response.status()).toBe(500);
+      expect(response.statusText()).toBe('Internal Server Error');
+      expect(await response.text()).toBe('Internal Server Error');
+    });
 
-    test(
-      'invalid lastname field in the payload',
-      async ({ request }) => {
-        const response = await postRequestWithBody(
-          request,
-          `${BASE_URL}/booking`,
-          createBookingInvalidBody.invalidFieldLastname
-        );
-        expect(response.status()).toBe(500);
-        expect(response.statusText()).toBe('Internal Server Error');
-        expect(await response.text()).toBe('Internal Server Error');
-      }
-    );
+    test('invalid lastname field in the payload', async ({ request }) => {
+      const response = await postRequestWithBody(
+        request,
+        `${BASE_URL}/booking`,
+        createBookingInvalidBody.invalidFieldLastname
+      );
+      expect(response.status()).toBe(500);
+      expect(response.statusText()).toBe('Internal Server Error');
+      expect(await response.text()).toBe('Internal Server Error');
+    });
 
-    test(
-      'invalid depositpaid field in the payload',
-      async ({ request }) => {
-        const response = await postRequestWithBody(
-          request,
-          `${BASE_URL}/booking`,
-          createBookingInvalidBody.invalidFieldDepositpaid
-        );
-        expect(response.status()).toBe(500);
-        expect(response.statusText()).toBe('Internal Server Error');
-        expect(await response.text()).toBe('Internal Server Error');
-      }
-    );
+    test('invalid depositpaid field in the payload', async ({ request }) => {
+      const response = await postRequestWithBody(
+        request,
+        `${BASE_URL}/booking`,
+        createBookingInvalidBody.invalidFieldDepositpaid
+      );
+      expect(response.status()).toBe(500);
+      expect(response.statusText()).toBe('Internal Server Error');
+      expect(await response.text()).toBe('Internal Server Error');
+    });
 
-    test(
-      'invalid totalprice field in the payload',
-      async ({ request }) => {
-        const response = await postRequestWithBody(
-          request,
-          `${BASE_URL}/booking`,
-          createBookingInvalidBody.invalidFieldTotalprice
-        );
-        expect(response.status()).toBe(500);
-        expect(response.statusText()).toBe('Internal Server Error');
-        expect(await response.text()).toBe('Internal Server Error');
-      }
-    );
+    test('invalid totalprice field in the payload', async ({ request }) => {
+      const response = await postRequestWithBody(
+        request,
+        `${BASE_URL}/booking`,
+        createBookingInvalidBody.invalidFieldTotalprice
+      );
+      expect(response.status()).toBe(500);
+      expect(response.statusText()).toBe('Internal Server Error');
+      expect(await response.text()).toBe('Internal Server Error');
+    });
   }
 );

@@ -14,7 +14,7 @@
     "e2eProd:BookingApp": "env-cmd -f .env.prod cross-env NODE_ENV=prod playwright test tests/bookingApp --grep @BookingAppRegression --project=chromium",
     "prettier": "prettier --check 'tests/**/*.{js,ts,json}' 'utilities/**/*.{js,ts,json}' 'schemas/**/*.{js,ts,json}' 'fixtures/**/*.{js,ts,json}'",
     "prettier:fix": "prettier --write 'tests/**/*.{js,ts,json}' 'utilities/**/*.{js,ts,json}' 'schemas/**/*.{js,ts,json}' 'fixtures/**/*.{js,ts,json}'",
-    "pre-commit": "prettier --check 'tests/**/*.{js,ts,json}' 'utilities/**/*.{js,ts,json}' 'schemas/**/*.{js,ts,json}' 'fixtures/**/*.{js,ts,json}'",
+    "pre-commit": "bun run prettier && bun run prettier:fix",
     "show-report": "playwright show-report reports/playwright-report ",
     "allure-generate": "allure generate allure-results --clean",
     "allure-generate-report": "allure open allure-report",

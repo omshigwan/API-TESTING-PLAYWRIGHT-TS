@@ -10,7 +10,7 @@ test.beforeEach(async ({}, testInfo) => {
 // All the tests related to creating auth token for endpoint /auth/login
 test.describe(
   'Tests for /POST for endpoint /auth/login',
-  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
     test('get auth token', async ({ request }) => {
       const response: APIResponse = await postRequestWithBody(
