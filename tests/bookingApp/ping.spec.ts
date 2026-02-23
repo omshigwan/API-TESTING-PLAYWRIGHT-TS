@@ -6,9 +6,10 @@ test.beforeEach(async ({}, testInfo) => {
   console.log(`Running test ${testInfo.title}`);
 });
 
+// Test for /ping endpoint to check the health of the server
 test.describe(
   'Test for /ping',
-  { tag: ['@BookingAppRegression', '@Sanity'] },
+  { tag: ['@BookingAppRegression', '@Positive', '@Sanity'] },
   () => {
     test('health check of the server', async ({ request }) => {
       const response = await getRequest(request, `${BASE_URL}/ping`);

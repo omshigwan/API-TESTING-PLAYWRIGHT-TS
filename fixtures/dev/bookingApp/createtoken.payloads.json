@@ -3,8 +3,20 @@
     "username": "admin",
     "password": "password123"
   },
-  "Unauthorised": {
+  "InvalidUsername": {
     "username": "random",
+    "password": "password123"
+  },
+  "InvalidPassword": {
+    "username": "admin",
     "password": "Test@_123"
+  },
+  "InvalidUsernameField": {
+    "invalid": "admin",
+    "password": "password123"
+  },
+  "InvalidPasswordField": {
+    "username": "admin",
+    "invalid": "password123"
   }
 }

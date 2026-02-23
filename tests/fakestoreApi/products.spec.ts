@@ -17,11 +17,12 @@ test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);
 });
 
+// All the tests related to GET operations of endpoint /products
 test.describe(
   'Tests for /GET for endpoint /products',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
-    test('get product', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get product', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/products/1`
@@ -37,7 +38,7 @@ test.describe(
       expect(responseBody.category).toBe("men's clothing");
     });
 
-    test('get all products', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get all products', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/products`
@@ -54,11 +55,12 @@ test.describe(
   }
 );
 
+// All the tests related to POST operations of endpoint /products
 test.describe(
   'Tests for /POST for endpoint /products',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
   () => {
-    test('add a new product', { tag: ['@Positive'] }, async ({ request }) => {
+    test('add a new product', async ({ request }) => {
       const response: APIResponse = await postRequestWithBody(
         request,
         `${BASE_URL}/products`,
@@ -77,11 +79,12 @@ test.describe(
   }
 );
 
+// All the tests related to PUT operations of endpoint /products
 test.describe(
   'Tests for /PUT for endpoint /products',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
   () => {
-    test('udpate a product', { tag: ['@Positive'] }, async ({ request }) => {
+    test('udpate a product', async ({ request }) => {
       const response: APIResponse = await updateRequest(
         request,
         `${BASE_URL}/products/1`,
@@ -100,11 +103,12 @@ test.describe(
   }
 );
 
+// All the tests related to DELETE operations of endpoint /products
 test.describe(
   'Tests for /DELETE for endpoint /products',
-  { tag: ['@FakeStoreRegression'] },
+  { tag: ['@FakeStoreRegression', '@Positive'] },
   () => {
-    test('delete a product', { tag: ['@Positive'] }, async ({ request }) => {
+    test('delete a product', async ({ request }) => {
       const response: APIResponse = await deleteRequest(
         request,
         `${BASE_URL}/products/1`

@@ -7,7 +7,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: isCI,
   retries: isCI ? 1 : 2,
-  workers: 1,
+  workers: isCI ? 1 : 4,
   reporter: [
     ["list"],
     ["html", { outputFolder: "reports/playwright-report", open: "always" }],
@@ -23,16 +23,6 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
-    },
-
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
-
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
+    }
   ],
 });

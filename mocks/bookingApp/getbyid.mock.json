@@ -1,0 +1,32 @@
+{
+    "Om": {
+        "firstname": "Om",
+        "lastname": "Shigvan",
+        "totalprice": 1099,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2018-05-21",
+            "checkout": "2024-03-11"
+        }
+    },
+    "Eric": {
+        "firstname": "Eric",
+        "lastname": "Garcia",
+        "totalprice": 680,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2018-05-21",
+            "checkout": "2024-03-11"
+        }
+    },
+    "Sunil": {
+        "firstname": "Sunil",
+        "lastname": "Verma",
+        "totalprice": 999,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2018-05-21",
+            "checkout": "2024-03-11"
+        }
+    }
+}
