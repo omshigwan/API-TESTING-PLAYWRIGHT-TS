@@ -17,11 +17,12 @@ test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);
 });
 
+// All the tests related to GET operations of endpoint /carts
 test.describe(
   'Tests for /GET for endpoint /carts',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
   () => {
-    test('get a single cart', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get a single cart', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/carts/1`
@@ -35,7 +36,7 @@ test.describe(
       expect(responseBody.id).toBe(1);
     });
 
-    test('get all carts', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get all carts', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/carts`
@@ -52,11 +53,12 @@ test.describe(
   }
 );
 
+// All the tests related to POST operations of endpoint /carts
 test.describe(
   'Tests for /POST for endpoint /carts',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
   () => {
-    test('add a new cart', { tag: ['@Positive'] }, async ({ request }) => {
+    test('add a new cart', async ({ request }) => {
       const response: APIResponse = await postRequestWithBody(
         request,
         `${BASE_URL}/carts`,
@@ -72,11 +74,12 @@ test.describe(
   }
 );
 
+// All the tests related to PUT operations of endpoint /carts
 test.describe(
   'Tests for /PUT for endpoint /carts',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
   () => {
-    test('update a cart', { tag: ['@Positive'] }, async ({ request }) => {
+    test('update a cart', async ({ request }) => {
       const response: APIResponse = await updateRequest(
         request,
         `${BASE_URL}/carts/1`,
@@ -92,11 +95,12 @@ test.describe(
   }
 );
 
+// All the tests related to DELETE operations of endpoint /carts
 test.describe(
   'Tests for /DELETE for endpoint /carts',
-  { tag: ['@FakeStoreRegression'] },
+  { tag: ['@FakeStoreRegression', '@Positive'] },
   () => {
-    test('delete a cart', { tag: ['@Positive'] }, async ({ request }) => {
+    test('delete a cart', async ({ request }) => {
       const response: APIResponse = await deleteRequest(
         request,
         `${BASE_URL}/carts/1`

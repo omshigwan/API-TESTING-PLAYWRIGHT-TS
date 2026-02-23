@@ -16,11 +16,12 @@ test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);
 });
 
+// All the tests related to GET operations of endpoint /users
 test.describe(
   'Tests for /GET for endpoint /users',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
-    test('get a single user', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get a single user', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/users/1`
@@ -39,7 +40,7 @@ test.describe(
       expect(responseBody.name.lastname).toBe('doe');
     });
 
-    test('get all users', { tag: ['@Positive'] }, async ({ request }) => {
+    test('get all users', async ({ request }) => {
       const response: APIResponse = await getRequest(
         request,
         `${BASE_URL}/users`
@@ -59,11 +60,12 @@ test.describe(
   }
 );
 
+// All the tests related to POST operations of endpoint /users
 test.describe(
   'Tests for /POST for endpoint /users',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
-    test('add a new user', { tag: ['@Positive'] }, async ({ request }) => {
+    test('add a new user', async ({ request }) => {
       const response: APIResponse = await postRequestWithBody(
         request,
         `${BASE_URL}/users`,
@@ -79,11 +81,12 @@ test.describe(
   }
 );
 
+// All the tests related to PUT operations of endpoint /users
 test.describe(
   'Tests for /PUT for endpoint /users',
-  { tag: ['@FakeStoreRegression', '@Sanity'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
-    test('update a user', { tag: ['@Positive'] }, async ({ request }) => {
+    test('update a user', async ({ request }) => {
       const response: APIResponse = await updateRequest(
         request,
         `${BASE_URL}/users/1`,
@@ -99,11 +102,12 @@ test.describe(
   }
 );
 
+// All the tests related to DELETE operations of endpoint /users
 test.describe(
   'Tests for /DELETE for endpoint /users',
-  { tag: ['@FakeStoreRegression'] },
+  { tag: ['@FakeStoreRegression', '@Positive'] },
   () => {
-    test('delete a user', { tag: ['@Positive'] }, async ({ request }) => {
+    test('delete a user', async ({ request }) => {
       const response: APIResponse = await deleteRequest(
         request,
         `${BASE_URL}/users/1`

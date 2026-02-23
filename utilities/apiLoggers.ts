@@ -1,5 +1,14 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
 
+/**
+ * Sends a GET request using Playwright's `APIRequestContext` and logs
+ * request and response details including URL, headers, status, and body.
+ *
+ * @param request - Playwright `APIRequestContext` used to perform the request.
+ * @param url - The URL to send the GET request to.
+ * @param headers - Optional request headers forwarded to `request.get`.
+ * @returns A Promise resolving to the Playwright `APIResponse`.
+ */
 export async function getRequest(
   request: APIRequestContext,
   url: string,
@@ -31,6 +40,15 @@ export async function getRequest(
   return response;
 }
 
+/**
+ * Sends a POST request with an optional body using Playwright's
+ * `APIRequestContext` and logs request and response details.
+ *
+ * @param request - Playwright `APIRequestContext` used to perform the request.
+ * @param url - The URL to send the POST request to.
+ * @param body - Optional request body (typically an object) sent as request data.
+ * @returns A Promise resolving to the Playwright `APIResponse`.
+ */
 export async function postRequestWithBody(
   request: APIRequestContext,
   url: string,
@@ -62,6 +80,15 @@ export async function postRequestWithBody(
   return response;
 }
 
+/**
+ * Sends a PUT request with an optional body using Playwright's
+ * `APIRequestContext` and logs request and response details.
+ *
+ * @param request - Playwright `APIRequestContext` used to perform the request.
+ * @param url - The URL to send the PUT request to.
+ * @param body - Optional request body (typically an object) sent as request data.
+ * @returns A Promise resolving to the Playwright `APIResponse`.
+ */
 export async function updateRequest(
   request: APIRequestContext,
   url: string,
@@ -93,6 +120,15 @@ export async function updateRequest(
   return response;
 }
 
+/**
+ * Sends a DELETE request using Playwright's `APIRequestContext` and logs
+ * request and response details including URL, headers, status, and body.
+ *
+ * @param request - Playwright `APIRequestContext` used to perform the request.
+ * @param url - The URL to send the DELETE request to.
+ * @param headers - Optional request headers forwarded to `request.delete`.
+ * @returns A Promise resolving to the Playwright `APIResponse`.
+ */
 export async function deleteRequest(
   request: APIRequestContext,
   url: string,
