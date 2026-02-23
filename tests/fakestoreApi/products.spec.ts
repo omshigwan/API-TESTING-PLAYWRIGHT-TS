@@ -58,7 +58,7 @@ test.describe(
 // All the tests related to POST operations of endpoint /products
 test.describe(
   'Tests for /POST for endpoint /products',
-  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
     test('add a new product', async ({ request }) => {
       const response: APIResponse = await postRequestWithBody(
@@ -82,7 +82,7 @@ test.describe(
 // All the tests related to PUT operations of endpoint /products
 test.describe(
   'Tests for /PUT for endpoint /products',
-  { tag: ['@FakeStoreRegression', '@Sanity' , '@Positive'] },
+  { tag: ['@FakeStoreRegression', '@Sanity', '@Positive'] },
   () => {
     test('udpate a product', async ({ request }) => {
       const response: APIResponse = await updateRequest(
