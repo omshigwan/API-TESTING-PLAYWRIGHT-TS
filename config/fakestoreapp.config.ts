@@ -5,7 +5,7 @@ export const ENV = process.env.NODE_ENV || "dev";
 
 const BASE_URLS: Record<string, string> = {
   dev: process.env.FAKE_STORE_BASE_URL_DEV || "https://fakestoreapi.com",
-  preprod: process.env.FAKE_STORE_BASE_URL_STAGING || "https://fakestoreapi.staging.com",
+  staging: process.env.FAKE_STORE_BASE_URL_STAGING || "https://fakestoreapi.staging.com",
   prod: process.env.FAKE_STORE_BASE_URL_PROD || "https://fakestoreapi.prod.com",
 };
 
