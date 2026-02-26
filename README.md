@@ -14,9 +14,8 @@ This project demonstrates API testing using Playwright with TypeScript, focusing
 - **Schema Validation**: Integrates AJV for validating API responses against JSON schemas.
 - **Tag-Based Test Execution**: Run tests by tags for focused or regression testing.
 - **Reporting**: Built-in Playwright reporters and Allure Report for detailed analytics.
-<!-- - **Pre-commit Hooks**: (Optional) Use Husky or similar tools to enforce code quality before commits.
-- **CI/CD Ready**: Easily integrates with Jenkins, GitHub Actions, or other CI/CD tools. -->
-- **Dependency Management**: Managed with Yarn or npm for streamlined workflows.
+- **CI/CD Ready**: Easily integrates with Jenkins, GitHub Actions, or other CI/CD tools.
+- **Dependency Management**: Managed with Bun for runtime and package management.
 
 ---
 
@@ -26,11 +25,9 @@ Install the following tools to use this project:
 
 - **Git**: [Download Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 - **Visual Studio Code**: [Download VSCode](https://code.visualstudio.com/)
-- **Node.js**: [Download NodeJS](https://nodejs.org/)
+- **Bun**: [Download Bun](https://bun.sh/)
 - **Playwright**: [Playwright Docs](https://playwright.dev/docs/intro/)
 - **Allure Playwright**: [Allure Reporter](https://github.com/allure-framework/allure-playwright)
-
-_Note: Use the latest stable versions compatible with your OS and CPU._
 
 ---
 
@@ -42,9 +39,7 @@ _Note: Use the latest stable versions compatible with your OS and CPU._
    ```
 2. Install dependencies:
    ```bash
-   yarn install
-   # or
-   npm install
+   bun install
    ```
 3. Open the project in VSCode:
    - Click **File > Open Folder...**
@@ -70,24 +65,24 @@ _Note: Use the latest stable versions compatible with your OS and CPU._
 
 1. Run all Fakestore API tests for Dev:
    ```bash
-   yarn e2eDev:Fakestore
+   bun run e2eDev:Fakestore
    ```
 2. Run BookingApp API tests for Staging:
    ```bash
-   yarn e2ePreprod:BookingApp
+   bun run e2ePreprod:BookingApp
    ```
 3. Run tests by tag:
    ```bash
-   yarn e2eDev:Fakestore --grep=@tagName
+   bun run e2eDev:Fakestore --grep=@tagName
    ```
 
 ### Generating Reports
 
 1. **Allure Report**:
-   - Generate and open the report:
-     ```bash
-     yarn allure-report
-     ```
+    - Generate and open the report:
+       ```bash
+       bun run allure-report
+       ```
 2. **Playwright Native Report**:
    - Open the following file in your browser:
      ```
@@ -114,3 +109,9 @@ _Note: Use the latest stable versions compatible with your OS and CPU._
 - [Playwright Test Runner](https://playwright.dev/docs/test-intro)
 - [Environment Variables in Playwright](https://playwright.dev/docs/test-configuration#environment-variables)
 - [Running Tests](https://playwright.dev/docs/running-tests)
+
+## Authorization
+
+```
+SGVsbG8sIEknbSBPbSwgYSB0ZXN0IGF1dG9tYXRpb24gZW5naW5lZXIgd2hvIGxvdmVzIHR1cm5pbmcgZmxha3kgc3lzdGVtcyBpbnRvIHJlbGlhYmxlIG9uZXMuIFRoaXMgcmVwbyBob3N0cyBhIFBsYXl3cmlnaHQgKyBUeXBlU2NyaXB0IHRlc3Qgc3VpdGUgZm9yIHRoZSBCb29raW5nQXBwOiBBUEkgdGVzdHMsIGVuZC10by1lbmQgY2hlY2tzLCBuaWdodGx5IHJlZ3Jlc3Npb24gcnVucywgYW5kIEFsbHVyZSByZXBvcnRpbmcuIElmIHlvdSBmb3VuZCB0aGlzIGxpdHRsZSBub3RlLCBjb25ncmF0dWxhdGlvbnMg4oCUIHlvdSBkaXNjb3ZlcmVkIHRoZSBwcm9qZWN0J3MgZWFzdGVyIGVnZyA6KQ==
+```

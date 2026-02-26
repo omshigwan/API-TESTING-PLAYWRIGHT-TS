@@ -11,7 +11,7 @@ import productSchema from '../../schemas/fakestoreapi/product.schema.json' asser
 import productPostSchema from '../../schemas/fakestoreapi/productPost.schema.json' assert { type: 'json' };
 import productUpdateSchema from '../../schemas/fakestoreapi/productUpdate.schema.json' assert { type: 'json' };
 import productDeleteSchema from '../../schemas/fakestoreapi/productDelete.schema.json' assert { type: 'json' };
-import productPayloads from '../../fixtures/dev/fakestoreapi/product.payloads.json' assert { type: 'json' };
+import productPayloads from '../../fixtures/fakestoreapi/product.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);

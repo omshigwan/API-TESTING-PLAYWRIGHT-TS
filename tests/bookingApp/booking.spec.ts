@@ -4,8 +4,8 @@ import { validateSchema } from '../../utilities/validation';
 import { BASE_URL } from '../../config/bookintapp.config.js';
 import getBookingMock from '../../mocks/bookingApp/getbyid.mock.json' assert { type: 'json' };
 import createBookingSchema from '../../schemas/bookingApp/booking.spec.json' assert { type: 'json' };
-import createBookingBody from '../../fixtures/dev/bookingApp/createbooking.payloads.json' assert { type: 'json' };
-import createBookingInvalidBody from '../../fixtures/dev/bookingApp/createbookinginvalid.payloads.json' assert { type: 'json' };
+import createBookingBody from '../../fixtures/bookingApp/createbooking.payloads.json' assert { type: 'json' };
+import createBookingInvalidBody from '../../fixtures/bookingApp/createbookinginvalid.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`Running test ${testInfo.title}`);

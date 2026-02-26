@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { BASE_URL } from '../../config/bookintapp.config.js';
 import { postRequestWithBody } from '../../utilities/apiLoggers';
-import createtoken from '../../fixtures/dev/bookingApp/createtoken.payloads.json' assert { type: 'json' };
+import createtoken from '../../fixtures/bookingApp/createtoken.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`Running test ${testInfo.title}`);
