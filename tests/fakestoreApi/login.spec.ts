@@ -1,7 +1,7 @@
 import { APIResponse, test, expect } from '@playwright/test';
 import { BASE_URL } from '../../config/fakestoreapp.config.js';
 import { postRequestWithBody } from '../../utilities/apiLoggers';
-import loginPayloads from '../../fixtures/dev/fakestoreapi/login.payloads.json' assert { type: 'json' };
+import loginPayloads from '../../fixtures/fakestoreapi/login.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);

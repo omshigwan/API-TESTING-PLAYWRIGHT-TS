@@ -10,7 +10,7 @@ import {
 import userSchema from '../../schemas/fakestoreapi/user.schema.json' assert { type: 'json' };
 import updateUserSchema from '../../schemas/fakestoreapi/userUpdate.schema.json' assert { type: 'json' };
 import deleteUserSchema from '../../schemas/fakestoreapi/userDelete.schema.json' assert { type: 'json' };
-import userPayloads from '../../fixtures/dev/fakestoreapi/user.payloads.json' assert { type: 'json' };
+import userPayloads from '../../fixtures/fakestoreapi/user.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);

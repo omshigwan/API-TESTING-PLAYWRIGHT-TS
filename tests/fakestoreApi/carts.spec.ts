@@ -11,7 +11,7 @@ import cartSchema from '../../schemas/fakestoreapi/cart.schema.json' assert { ty
 import cartPostSchema from '../../schemas/fakestoreapi/cartPost.schema.json' assert { type: 'json' };
 import cartUpdateSchema from '../../schemas/fakestoreapi/cartUpdate.schema.json' assert { type: 'json' };
 import cartDeleteSchema from '../../schemas/fakestoreapi/cartDelete.schema.json' assert { type: 'json' };
-import cartPayload from '../../fixtures/dev/fakestoreapi/cart.payloads.json' assert { type: 'json' };
+import cartPayload from '../../fixtures/fakestoreapi/cart.payloads.json' assert { type: 'json' };
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`running: ${testInfo.title}`);
