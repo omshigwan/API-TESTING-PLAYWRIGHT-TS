@@ -2,15 +2,16 @@ name: Nightly Regression Test Runs
 
 on:
   schedule:
-    # Runs Wed 12:00 AM IST
-    - cron: '30 18 * * 2'
-    # Runs Fri 12:00 PM IST
-    - cron: '5 10 * * 5'
+  # runs pipeline on Tuesdays at 12:30 PM IST/ / 7:00 AM UTC
+    - cron: '0 7 * * TUE'
+  # runs pipeline on Fridays at 12:30 PM IST / 7:00 AM UTC
+    - cron: '0 7 * * FRI'    
+  workflow_dispatch:  
 
 
 jobs:
   BookingApp-Dev-Sanity-Trigger:
-    if: ${{ github.event_name == 'schedule' && github.event.schedule == '30 18 * * 2' }}
+    if: ${{ (github.event_name == 'workflow_dispatch') || (github.event_name == 'schedule' && github.event.schedule == '0 7 * * TUE') }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -48,7 +49,7 @@ jobs:
           retention-days: 30
             
   BookingApp-Dev-Regression-Trigger:
-    if: ${{ github.event_name == 'schedule' && github.event.schedule == '5 10 * * 5' }}
+    if: ${{ (github.event_name == 'workflow_dispatch') || (github.event_name == 'schedule' && github.event.schedule == '0 7 * * FRI') }}
     timeout-minutes: 60
     runs-on: ubuntu-latest      
     steps:
