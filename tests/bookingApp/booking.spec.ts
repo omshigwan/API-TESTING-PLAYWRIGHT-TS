@@ -2,10 +2,12 @@ import { test, expect } from '@playwright/test';
 import { getRequest, postRequestWithBody } from '../../utilities/apiLoggers';
 import { validateSchema } from '../../utilities/validation';
 import { BASE_URL } from '../../config/bookintapp.config.js';
-import getBookingMock from '../../mocks/bookingApp/getbyid.mock.json' assert { type: 'json' };
+import getBookingByIdMock from '../../mocks/bookingApp/getbyid.mock.json' assert { type: 'json' };
+import getBookingByNameMock from '../../mocks/bookingApp/getbyname.mock.json' assert { type: 'json' };
 import createBookingSchema from '../../schemas/bookingApp/booking.spec.json' assert { type: 'json' };
 import createBookingBody from '../../fixtures/bookingApp/createbooking.payloads.json' assert { type: 'json' };
 import createBookingInvalidBody from '../../fixtures/bookingApp/createbookinginvalid.payloads.json' assert { type: 'json' };
+import { getOrMock } from '../../utilities/mock';
 
 test.beforeEach(async ({}, testInfo) => {
   console.log(`Running test ${testInfo.title}`);
@@ -36,7 +38,7 @@ test.describe(
       'get a booking by id',
       { tag: ['@Positive', '@Sanity'] },
       async ({ request }) => {
-        const response = await getRequest(request, `${BASE_URL}/booking/16`);
+        const response = await getOrMock(request, `${BASE_URL}/booking/16` , getBookingByIdMock.Om);
         expect(response.status()).toBe(200);
         expect(response.statusText()).toBe('OK');
 
@@ -58,8 +60,8 @@ test.describe(
       'get booking ids by first name',
       { tag: ['@Positive'] },
       async ({ request }) => {
-        const response = await getRequest(request, `${BASE_URL}/booking`, {
-          params: { firstname: 'Eric' },
+        const response = await getOrMock(request, `${BASE_URL}/booking`, getBookingByNameMock, {
+          params: { firstname: 'Om' },
         });
         expect(response.status()).toBe(200);
         expect(response.statusText()).toBe('OK');
@@ -75,7 +77,7 @@ test.describe(
       'get booking ids by last name',
       { tag: ['@Positive'] },
       async ({ request }) => {
-        const response = await getRequest(request, `${BASE_URL}/booking`, {
+        const response = await getOrMock(request, `${BASE_URL}/booking`, {
           params: { lastname: 'Smith' },
         });
         expect(response.status()).toBe(200);
