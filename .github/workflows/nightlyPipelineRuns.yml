@@ -5,7 +5,7 @@ on:
     # Runs Wed 12:00 AM IST
     - cron: '30 18 * * 2'
     # Runs Fri 12:00 PM IST
-    - cron: '30 6 * * 5'
+    - cron: '45 9 * * 5'
 
 
 jobs:
@@ -48,7 +48,7 @@ jobs:
           retention-days: 30
             
   BookingApp-Dev-Regression-Trigger:
-    if: ${{ github.event_name == 'schedule' && github.event.schedule == '30 6 * * 5' }}
+    if: ${{ github.event_name == 'schedule' && github.event.schedule == '45 9 * * 5' }}
     timeout-minutes: 60
     runs-on: ubuntu-latest      
     steps:
