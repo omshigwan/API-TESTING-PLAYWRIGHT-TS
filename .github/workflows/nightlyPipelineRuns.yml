@@ -5,7 +5,7 @@ on:
     # Runs Wed 12:00 AM IST
     - cron: '30 18 * * 2'
     # Runs Fri 12:00 PM IST
-    - cron: '30 6 * * 5'
+    - cron: '45 9 * * 5'
 
 
 jobs:
@@ -13,11 +13,6 @@ jobs:
     if: ${{ github.event_name == 'schedule' && github.event.schedule == '30 18 * * 2' }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      checks: write
-      BASE_URL: ${{ vars.BASE_URL }}
-
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -53,14 +48,9 @@ jobs:
           retention-days: 30
             
   BookingApp-Dev-Regression-Trigger:
-    if: ${{ github.event_name == 'schedule' && github.event.schedule == '30 6 * * 5' }}
+    if: ${{ github.event_name == 'schedule' && github.event.schedule == '45 9 * * 5' }}
     timeout-minutes: 60
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      checks: write
-      BASE_URL: ${{ vars.BASE_URL }}
-      
+    runs-on: ubuntu-latest      
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
