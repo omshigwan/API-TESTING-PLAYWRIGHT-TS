@@ -36,7 +36,7 @@ test.describe(
       'get a booking by id',
       { tag: ['@Positive', '@Sanity'] },
       async ({ request }) => {
-        const response = await getRequest(request, `${BASE_URL}/booking/3014`);
+        const response = await getRequest(request, `${BASE_URL}/booking/16`);
         expect(response.status()).toBe(200);
         expect(response.statusText()).toBe('OK');
 
